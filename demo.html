@@ -1,0 +1,50 @@
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <div id="app">
+            {{text}}
+            <p k-text="test"></p>
+            <input type="text" k-model="text">
+            <button @click="click">hello</button>
+        </div>
+        <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+        <script type="text/javascript" src="./kvue.js"></script>
+        <script type="text/javascript" src="./compile.js"></script>
+
+        <script type="text/javascript">
+            // new Vue({
+            //     el:'#app',
+            //     template: '<div>大家好 {{text}}</div>',
+            //     data: function() {
+            //         return {
+            //             text: 'hello vue'
+            //         }
+            //     }
+            // });
+
+            new KVue({
+                name: 'app',
+                el:'#app',
+                template: `
+                <div>{{text}}</div>
+                <p k-text="test"></p>
+                <input type="text" k-model="text">`,
+                data() {
+                    return {
+                        text: "hello",
+                        test: 'test'
+                    }
+                },
+                methods: {
+                    click() {
+                        alert(this.text)
+                    }
+                },
+            });
+
+
+        </script>
+    </body>
+</html>
